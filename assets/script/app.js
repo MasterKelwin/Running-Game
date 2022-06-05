@@ -23,8 +23,8 @@ const loop = setInterval(() => {
 
         player.style.animation = 'none';
         player.src = "assets/imgs/game-over.png";
-        player.classList.remove('player');
-        player.classList.add('game-over');
+        //player.classList.remove('player');
+        //player.classList.add('game-over');
         player.style.bottom = `${posicaoPlayer}px`;
         
     }
