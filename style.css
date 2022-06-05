@@ -1,3 +1,29 @@
 body {
     background-color: var(--cor-de-fundo);
 }
+
+.jogo {
+    width: 75%;
+    height: 780px;
+    border: 10px solid var(--cor-escura);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.obstaculo {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    animation: obstaculo-animation 2s infinite linear;
+}
+
+@keyframes obstaculo-animation {
+    from {
+        right: -100px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
