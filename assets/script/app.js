@@ -19,10 +19,14 @@ const loop = setInterval(() => {
     if(posicaoObstaculo <= 180 && posicaoPlayer <= 150 && posicaoObstaculo >= 10) {
 
         obstaculo.style.animation = 'none';
-        obstaculo.style.left = `${posicaoObstaculo}px`
-        player.style.animation = 'none';
-        player.style.bottom = `${posicaoPlayer}px`
+        obstaculo.style.left = `${posicaoObstaculo}px`;
 
+        player.style.animation = 'none';
+        player.src = "assets/imgs/game-over.png";
+        player.classList.remove('player');
+        player.classList.add('game-over');
+        player.style.bottom = `${posicaoPlayer}px`;
+        
     }
 }, 10)
 

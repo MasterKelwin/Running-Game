@@ -17,6 +17,13 @@ body {
     width: 220px;
 }
 
+.game-over {
+    position: absolute;
+    bottom: 0;
+    max-height: 70px;
+    left: 60px;
+}
+
 .jump {
     animation: player-jump 600ms ease-out;
 }
