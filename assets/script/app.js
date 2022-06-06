@@ -3,9 +3,16 @@ const player = $("#player");
 const obstaculo = $("#obstaculo");
 const pontos = $("#pontos");
 const gameOver = $("#gameOver");
+const reseta = $("#botao");
+const recorde = $("#recorde");
 const trilha = $("#audioTrilha");
+const audioGameOver = $("#audioGameOver");
+const audioPontos = $("#audioPontos");
+
 let score = 0;
 let verificadorDeUnidade = false;
+let verificadorDeGameOver = false;
+
 
 const jump = () => {    
     player.classList.add('jump')
@@ -18,9 +25,7 @@ const jump = () => {
 const loop = setInterval(() => {
     const posicaoObstaculo = obstaculo.offsetLeft;
     const posicaoPlayerString = window.getComputedStyle(player).bottom.replace('px', '');
-    const posicaoPlayer = Number(posicaoPlayerString);
-    console.log(posicaoObstaculo)
-    
+    const posicaoPlayer = Number(posicaoPlayerString); 
 
     const paraObstaculo = () => {
         obstaculo.style.animation = 'none';
@@ -37,16 +42,27 @@ const loop = setInterval(() => {
             score++;
             pontos.textContent = `PONTOS: ${score}`;
             verificadorDeUnidade = true;
+            audioPontos.play();
+            console.log(score);
     }
     const fimDeJogo = () => {
         gameOver.classList.remove('hidden');
         gameOver.classList.add('gameOver');
+        audioGameOver.play();
+        reseta.classList.remove("hidden"); 
+        reseta.classList.add("botao"); 
     }
 
-    if(posicaoObstaculo <= 180 && posicaoPlayer <= 180 && posicaoObstaculo >= 10) {
+    const registraRecorde = () => {
+
+    }
+
+    if(posicaoObstaculo <= 180 && posicaoPlayer <= 180 && posicaoObstaculo >= 10 && verificadorDeGameOver == false) {
         paraObstaculo();
         paraPlayer();
         fimDeJogo();
+        registraRecorde();
+        verificadorDeGameOver = true;
     } else if (posicaoObstaculo <= 20 && posicaoObstaculo >= 0 && verificadorDeUnidade == false) {         
         atualizaPlacar();
     } else if (posicaoPlayer <= 0 && verificadorDeUnidade == true) {
@@ -61,5 +77,4 @@ document.addEventListener('keydown', tocaSom);
 
 function tocaSom() {
     trilha.play();
-    trilha.loop =true;
 }

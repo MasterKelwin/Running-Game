@@ -11,7 +11,7 @@ body {
     font-size: 5em;
     position: absolute;
     top: 20px;
-    left: 35vw;
+    left: 37vw;
     animation:  gameOver-animation .3s linear;
 }
 
@@ -36,6 +36,12 @@ body {
     width: 220px;
 }
 
+.recorde {
+    font-size: 2em;
+    color: var(--cor-clara);
+    text-align: center;
+}
+
 .jump {
     animation: player-jump 600ms ease-out;
 }
@@ -48,6 +54,14 @@ body {
     animation: obstaculo-animation 2s infinite linear;
 }
 
+
+.clouds {
+    position: absolute;
+    top: 10%;
+    width: 750px;
+    animation: clouds-animation infinite 6s linear;
+}
+
 @keyframes gameOver-animation {
     from {
         font-size: .1em;
@@ -55,6 +69,16 @@ body {
     
     to{
         font-size: 5em;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -750px;
+    }
+
+    to {
+        right: 100%;
     }
 }
 
@@ -84,4 +108,70 @@ body {
     100% {
         bottom: 0;
     }
+}
+
+@keyframes botao-animation {
+    0% {
+        left: 40vw;
+        width: 22;
+        opacity: 0;
+    }
+
+    40% {
+        left:38vw;
+        width: 26%;
+        opacity: 0.4;
+    }
+
+    60% {
+        width: 26%;
+        left:38vw;
+        opacity: 0.4;
+    }
+
+    100%{
+        width: 22%;
+        left: 40vw;
+        opacity: 1;
+    }
+}
+
+
+.botao {
+    animation: botao-animation 2s linear;
+    width: 22%;
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #405cf5;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 100%;
+    height: 44px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s,box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    left: 40vw;
+    top: 50%;
+}
+
+.botao:disabled {
+    cursor: default;
+}
+
+.botao:focus {
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
