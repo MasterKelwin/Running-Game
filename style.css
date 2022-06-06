@@ -2,6 +2,19 @@ body {
     background-color: var(--cor-de-fundo);
 }
 
+.hidden {
+    display: none;
+}
+
+.gameOver {     
+    color: var(--cor-clara);
+    font-size: 5em;
+    position: absolute;
+    top: 20px;
+    left: 35vw;
+    animation:  gameOver-animation .3s linear;
+}
+
 .pontos {
     text-align: center;
     color: var(--cor-clara);
@@ -23,13 +36,6 @@ body {
     width: 220px;
 }
 
-.game-over {
-    position: absolute;
-    bottom: 0;
-    max-height: 70px;
-    left: 60px;
-}
-
 .jump {
     animation: player-jump 600ms ease-out;
 }
@@ -40,6 +46,16 @@ body {
     width: 140px;
     height: 220px;
     animation: obstaculo-animation 2s infinite linear;
+}
+
+@keyframes gameOver-animation {
+    from {
+        font-size: .1em;
+    }
+    
+    to{
+        font-size: 5em;
+    }
 }
 
 @keyframes obstaculo-animation {
