@@ -5,6 +5,7 @@ const pontos = $("#pontos");
 let score = 0;
 let verificadorDeUnidade = false;
 
+
 const jump = () => {    
     player.classList.add('jump')
 
