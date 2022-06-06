@@ -20,7 +20,7 @@ const loop = setInterval(() => {
     const posicaoObstaculo = obstaculo.offsetLeft;
     const posicaoPlayerString = window.getComputedStyle(player).bottom.replace('px', '');
     const posicaoPlayer = Number(posicaoPlayerString);
-    console.log(posicaoPlayer)
+    console.log(posicaoObstaculo)
 
     const paraObstaculo = () => {
         obstaculo.style.animation = 'none';
@@ -44,7 +44,7 @@ const loop = setInterval(() => {
     if(posicaoObstaculo <= 180 && posicaoPlayer <= 180 && posicaoObstaculo >= 10) {
         paraObstaculo();
         paraPlayer();
-    } else if (posicaoObstaculo <= 170 && posicaoObstaculo >= 100 && verificadorDeUnidade == false) {         
+    } else if (posicaoObstaculo <= 20 && posicaoObstaculo >= 0 && verificadorDeUnidade == false) {         
         atualizaPlacar();
     } else if (posicaoPlayer <= 0 && verificadorDeUnidade == true) {
         verificadorDeUnidade = false;
